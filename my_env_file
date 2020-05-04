@@ -1,0 +1,6 @@
+PROJECT=my-final-test-blog
+DATASET=production
+SANITY_AUTH_TOKEN=skEwSTPhBO4JbmzCuXOeZOudEwFFiFyzigONFwC4FqijLS0GvCemY8Db0e7zLN6uFTI1VyNUhhAsgc57G
+GIT_SOURCE_REPO=https://github.com/akulk5/my-first-liberty-blog.git
+GIT_TARGET_REPO=https://299b6f755996edf3e4d7c0b1c563e71bbf1fd757@github.com/akulk5/final-test.git
+WEBHOOK_ENDPOINT= https://5whjbzzreh.execute-api.eu-central-1.amazonaws.com/beta/stackbot/add-webhook/sub
