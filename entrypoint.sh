@@ -18,4 +18,4 @@ git commit -m "Initial Commit"
 git push -u origin master
 cd /my-first-liberty-blog/studio
 sanity dataset import production.tar.gz $DATASET
-echo "Sanity Project Configuration Completed!!"
+echo "Sanity Project Provision Completed!!"
