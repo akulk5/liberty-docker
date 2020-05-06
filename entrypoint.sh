@@ -17,7 +17,7 @@ git push -u origin master
 cd /$GIT_SOURCE_FOLDER_NAME/studio
 sanity install
 sanity dataset create $DATASET --visibility public
-sanity dataset import production.tar.gz $DATASET
+sanity dataset import /production.tar.gz $DATASET
 cd ../..
 rm -r /$GIT_SOURCE_FOLDER_NAME
 curl -X POST -H "Authorization: Bearer $SANITY_AUTH_TOKEN"  -H "Content-Type: application/json" -d '{"dataset": "'$DATASET'", "name": "content_update", "url": "'$WEBHOOK_ENDPOINT'"}' https://api.sanity.io/v1/hooks/projects/$projectid
