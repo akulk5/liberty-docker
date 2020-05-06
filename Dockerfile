@@ -5,4 +5,5 @@ RUN apk add --no-cache curl
 RUN git config --global user.name "liberty"
 RUN git config --global user.email "platformservices@gmail.com"
 COPY entrypoint.sh /
+COPY production.tar.gz /
 ENTRYPOINT ["/entrypoint.sh"]
