@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 git clone $GIT_SOURCE_REPO
-cd /my-first-liberty-blog
+cd /$GIT_SOURCE_FOLDER_NAME
 projectid=$(curl -X POST -H "Authorization: Bearer $SANITY_AUTH_TOKEN"  -H "Content-Type: application/json" -d '{"displayName": "'$PROJECT'"}' https://api.sanity.io/v1/projects | jq -r '.id')
 sed -i -e 's/"PROJECT_ID"/"'$projectid'"/g' studio/sanity.json
 sed -i -e 's/DATASET_ID/'$DATASET'/g' studio/sanity.json
@@ -14,11 +14,11 @@ git add *
 git remote set-url origin $GIT_TARGET_REPO
 git commit -m "Initial Commit"
 git push -u origin master
-cd /my-first-liberty-blog/studio
+cd /$GIT_SOURCE_FOLDER_NAME/studio
 sanity install
 sanity dataset create $DATASET --visibility public
 sanity dataset import production.tar.gz $DATASET
 cd ../..
-rm -r /my-first-liberty-blog
+rm -r /$GIT_SOURCE_FOLDER_NAME
 curl -X POST -H "Authorization: Bearer $SANITY_AUTH_TOKEN"  -H "Content-Type: application/json" -d '{"dataset": "'$DATASET'", "name": "content_update", "url": "'$WEBHOOK_ENDPOINT'"}' https://api.sanity.io/v1/hooks/projects/$projectid
 echo "Sanity Project Provision Completed!!"
